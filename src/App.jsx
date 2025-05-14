@@ -15,7 +15,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
+    <div className="className=fullscreen">
       <h1 className="text-2xl font-bold text-center mb-4">Gym Tracker</h1>
       <WeekView entries={entries} onEdit={setEditingDay} />
       {editingDay && (
