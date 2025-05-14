@@ -18,7 +18,7 @@ Install dependencies and run the development server:
 
 <div style="font-size: 1em; font-family: monospace;">
   ```bash
-  npm install
+  npm install<br>
   npm run dev
 
 📄 License
