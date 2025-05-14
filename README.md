@@ -1,16 +1,44 @@
-<<<<<<< HEAD
-# gym-tracker
-=======
-# React + Vite
+# Gym Tracker
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+Gym Tracker is a simple web application that allows users to track their weight progress over the course of a week. It provides an easy-to-use interface to log daily weight entries, view progress in a table-like calendar format, and update entries as needed.
 
-Currently, two official plugins are available:
+## Features
+- **Track weekly weight progress** in a grid format.
+- **Edit daily entries** with an intuitive form.
+- **Private tracking** — data stays on your local machine for security.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+##How to Run the Software
 
-## Expanding the ESLint configuration
+### Prerequisites
+Make sure you have the following installed:
+- **Node.js** (v14 or higher)
+- **npm** (Node package manager)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> ce0c5e0 (Initial setup)
+### Steps to Run Locally
+
+1. **Clone the repository into your desired folder**:
+   ```bash
+   git clone https://github.com/EricScherer2006/gym-tracker.git
+
+2. **Navigate to project directory**:
+   ```bash
+   cd gym-tracker
+   
+3. **Install dependencies**:
+   ```bash
+   npm install
+
+4. **Run the development Server**:
+   ```bash
+   npm run dev
+
+5. **Open the App in your browser**:
+   Open http://localhost:3000 in your web browser to see the app runnin
+
+###Customizing
+If you want to modify the styling or components, feel free to edit the files in the src folder. The app uses Tailwind CSS for styling, so you can adjust the classes in the components to match your preferences.
+
+##Licence
+This project is licensed under the Apache 2.0 License - see the LICENSE file for details.
+
