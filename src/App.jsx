@@ -6,22 +6,21 @@ function App() {
   const [entries, setEntries] = useState({});
   const [editingDay, setEditingDay] = useState(null);
 
-  const handleSave = (day, name, weight) => {
+  const handleSave = (day, newEntry) => {
     setEntries((prev) => ({
       ...prev,
-      [day]: { name, weight: parseFloat(weight) },
+      [day]: [...(prev[day] || []), newEntry],
     }));
     setEditingDay(null);
   };
 
   return (
-    <div className="className=fullscreen">
-      <h1 className="text-2xl font-bold text-center mb-4">Gym Tracker</h1>
+    <div className="fullscreen p-4">
+      <h1 className="text-2xl font-bold text-center mb-4 mt-2 text-purple-600 uppercase">Gym Tracker</h1>
       <WeekView entries={entries} onEdit={setEditingDay} />
       {editingDay && (
         <EntryForm
           day={editingDay}
-          currentWeight={entries[editingDay]?.weight}
           onSave={handleSave}
           onCancel={() => setEditingDay(null)}
         />

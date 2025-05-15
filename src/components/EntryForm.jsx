@@ -1,56 +1,67 @@
 import { useState } from 'react';
 
-export default function EntryForm({ day, currentWeight, onSave, onCancel }) {
-  const [name, setname] = useState('');
-  const [weight, setWeight] = useState(currentWeight ?? '');
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (name.trim() === '' || weight === '') return;
-    onSave(day, name, weight);
-    setName('');
+function EntryForm({ day, onSave, onCancel }) {
+  const [exercise, setExercise] = useState('');
+  const [weight, setWeight] = useState('');
+
+  const handleAdd = () => {
+    if (!exercise.trim()) {
+      alert('Please enter an exercise name.');
+      return;
+    }
+    if (isNaN(parseFloat(weight))) {
+      alert('Please enter a valid number for weight.');
+      return;
+    }
+
+    const entry = {
+      exercise,
+      weight: parseFloat(weight),
+    };
+
+    onSave(day, entry);
+    setExercise('');
     setWeight('');
   };
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="bg-white shadow-md rounded px-4 py-3 mb-4 max-w-md mx-auto"
-    >
-      <h2 className="text-xl font-semibold mb-2">Add Exercise for {day}</h2>
-      <div className="mb-2">
-        <label className="block mb-1">Exercise Name</label>
+    <div className="p-4 bg-white border rounded shadow mb-4 max-w-md mx-auto">
+      <h2 className="text-lg font-semibold mb-2 text-center">Add Entry for {day}</h2>
+      <div className="flex flex-col gap-2">
         <input
-          className="border rounded w-full p-2"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="e.g., Bench Press"
+          type="text"
+          placeholder="Exercise name"
+          value={exercise}
+          onChange={(e) => setExercise(e.target.value)}
+          className="border p-2 rounded"
+          pattern="[A-Za-z\s]+"
+          title="Only letters and spaces allowed"
         />
-      </div>
-      <div className="mb-2">
-        <label className="block mb-1">Weight (kg)</label>
         <input
-          className="border rounded w-full p-2"
           type="number"
+          step="0.1"
+          placeholder="Weight (kg)"
           value={weight}
           onChange={(e) => setWeight(e.target.value)}
-          placeholder="e.g., 60"
+          className="border p-2 rounded"
         />
+        <div className="flex gap-2 justify-center mt-2">
+          <button
+            onClick={handleAdd}
+            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+          >
+            Add
+          </button>
+          <button
+            onClick={onCancel}
+            className="bg-gray-300 text-black px-4 py-2 rounded hover:bg-gray-400"
+          >
+            Cancel
+          </button>
+        </div>
       </div>
-      <div className="flex justify-end space-x-2">
-        <button
-          type="button"
-          onClick={onCancel}
-          className="bg-gray-300 px-3 py-1 rounded"
-        >
-          Cancel
-        </button>
-        <button
-          type="submit"
-          className="bg-blue-500 text-white px-3 py-1 rounded"
-        >
-          Save
-        </button>
-      </div>
-    </form>
+    </div>
   );
 }
+
+export default EntryForm;

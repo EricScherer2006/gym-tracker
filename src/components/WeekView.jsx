@@ -1,32 +1,37 @@
-const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+function WeekView({ entries, onEdit }) {
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-export default function WeekView({ entries, onEdit }) {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
-      {days.map((day) => (
-        <div key={day} className="border p-4 rounded shadow">
-          <div className="flex justify-between items-center mb-2">
-            <h3 className="text-lg font-bold">{day}</h3>
+    <div className="overflow-x-auto">
+      <div className="grid grid-cols-7 gap-4 mb-4 min-w-[700px] text-purple-400 text-lg">
+        {days.map((day) => (
+          <div
+            key={day}
+            className="border p-2 rounded shadow text-sm bg-white flex flex-col justify-between"
+          >
+            <div className="font-bold text-center mb-1 underline">{day}</div>
+            {entries[day] && entries[day].length > 0 ? (
+              <ul className="text-center space-y-1">
+                {entries[day].map((entry, index) => (
+                  <li key={index} className="text-gray-700">
+                    {entry.exercise} – {entry.weight} kg
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="text-center text-gray-400 italic text-xs">No entries yet</div>
+            )}
             <button
               onClick={() => onEdit(day)}
-              className="bg-green-500 text-white px-2 py-1 rounded"
+              className="mt-2 text-blue-500 hover:underline text-xs"
             >
-              Add
+              {entries[day] && entries[day].length > 0 ? 'Add More' : 'Add'}
             </button>
           </div>
-          {entries[day]?.length > 0 ? (
-            <ul className="list-disc pl-4 space-y-1">
-              {entries[day].map((entry, index) => (
-                <li key={index}>
-                  {entry.name}: {entry.weight} kg
-                </li>
-              ))}
-            </ul>
-          ) : (
-            <p className="text-gray-500">No entries yet.</p>
-          )}
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 }
+
+export default WeekView;
