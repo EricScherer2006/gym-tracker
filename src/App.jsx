@@ -6,10 +6,10 @@ function App() {
   const [entries, setEntries] = useState({});
   const [editingDay, setEditingDay] = useState(null);
 
-  const handleSave = (day, weight) => {
+  const handleSave = (day, name, weight) => {
     setEntries((prev) => ({
       ...prev,
-      [day]: { weight: parseFloat(weight) },
+      [day]: { name, weight: parseFloat(weight) },
     }));
     setEditingDay(null);
   };
