@@ -2,14 +2,19 @@ import React from "react";
 import SetRow from "./SetRow";
 
 const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
+
   const addSet = () => {
-    setWeekData(prev => {
-      const updated = [...prev[day]];
-      const newSets = [...exercise.sets, { reps: 0, weight: 0 }];
-      updated[exerciseIndex] = { ...exercise, sets: newSets };
-      return { ...prev, [day]: updated };
-    });
-  };
+  setWeekData(prev => {
+    const updated = [...prev[day]];
+    const currentExercise = updated[exerciseIndex];
+
+    const currentSets = Array.isArray(currentExercise.sets) ? currentExercise.sets : [];
+
+    const newSets = [...currentSets, { reps: 0, weight: 0 }];
+    updated[exerciseIndex] = { ...currentExercise, sets: newSets };
+    return { ...prev, [day]: updated };
+  });
+};
 
   const updateSet = (setIndex, key, value) => {
     setWeekData(prev => {
@@ -21,19 +26,44 @@ const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
     });
   };
 
+  const removeSet = (setIndex) => {
+    setWeekData(prev => {
+      const updated = [...prev[day]];
+      const filteredSets = exercise.sets.filter((_, i) => i !== setIndex);
+      updated[exerciseIndex] = { ...exercise, sets: filteredSets };
+      return { ...prev, [day]: updated };
+    });
+  };
+
   return (
-    <div className="mb-4">
-      <h3 className="font-semibold">{exercise.name}</h3>
-      {exercise.sets.map((set, i) => (
+    <div className="mb-4 border p-2 rounded bg-gray-50">
+      <div className="flex justify-between items-center">
+        <h3 className="font-semibold">{exercise.name}</h3>
+        <button
+          className="text-sm text-red-600"
+          onClick={() => {
+            setWeekData(prev => {
+              const updated = prev[day].filter((_, i) => i !== exerciseIndex);
+              return { ...prev, [day]: updated };
+            });
+          }}
+        >
+          X Remove Exercise
+        </button>
+      </div>
+
+      {(exercise.sets || []).map((set, i) => (
         <SetRow
           key={i}
           reps={set.reps}
           weight={set.weight}
           onChange={(key, value) => updateSet(i, key, value)}
+          onRemove={() => removeSet(i)}   // <--- THIS must be passed
         />
       ))}
+
       <button className="mt-1 text-sm text-green-600" onClick={addSet}>
-        ➕ Add Set
+        + Add Set
       </button>
     </div>
   );

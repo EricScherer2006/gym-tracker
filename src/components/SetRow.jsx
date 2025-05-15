@@ -1,6 +1,6 @@
 import React from "react";
 
-const SetRow = ({ reps, weight, onChange }) => {
+const SetRow = ({ reps, weight, onChange, onRemove }) => {
   return (
     <div className="flex gap-2 items-center mb-1">
       <label>
@@ -21,6 +21,9 @@ const SetRow = ({ reps, weight, onChange }) => {
           className="ml-1 w-20 border px-1 rounded"
         /> kg
       </label>
+      <button onClick={onRemove} className="text-red-600 text-sm ml-2">
+        X
+       </button> 
     </div>
   );
 };
