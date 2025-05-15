@@ -1,32 +1,22 @@
-import { useState } from 'react';
-import WeekView from './components/WeekView';
-import EntryForm from './components/EntryForm';
+import React, { useState } from "react";
+import WeekView from "./components/WeekView";
 
-function App() {
-  const [entries, setEntries] = useState({});
-  const [editingDay, setEditingDay] = useState(null);
+const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-  const handleSave = (day, newEntry) => {
-    setEntries((prev) => ({
-      ...prev,
-      [day]: [...(prev[day] || []), newEntry],
-    }));
-    setEditingDay(null);
-  };
+const App = () => {
+  const [weekData, setWeekData] = useState(
+    days.reduce((acc, day) => {
+      acc[day] = [];
+      return acc;
+    }, {})
+  );
 
   return (
-    <div className="fullscreen p-4">
-      <h1 className="text-2xl font-bold text-center mb-4 mt-2 text-purple-600 uppercase">Gym Tracker</h1>
-      <WeekView entries={entries} onEdit={setEditingDay} />
-      {editingDay && (
-        <EntryForm
-          day={editingDay}
-          onSave={handleSave}
-          onCancel={() => setEditingDay(null)}
-        />
-      )}
+    <div className="p-4">
+      <h1 className="text-2xl font-bold mb-4">Gym Tracker</h1>
+      <WeekView weekData={weekData} setWeekData={setWeekData} />
     </div>
   );
-}
+};
 
 export default App;
