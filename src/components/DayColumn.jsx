@@ -44,13 +44,13 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
             <button onClick={addExercise} className="text-sm bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">
               ✅ Add
             </button>
-            <button onClick={() => { setShowInput(false); setNewExerciseName(""); }} className="text-sm text-red-500">
+            <button onClick={() => { setShowInput(false); setNewExerciseName(""); }} className="text-sm bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">
               ❌ Cancel
             </button>
           </div>
         </div>
       ) : (
-        <button className="mt-2 text-sm text-blue-600" onClick={() => setShowInput(true)}>
+        <button className="mt-2 text-sm text-white-100" onClick={() => setShowInput(true)}>
           ➕ Add Exercise
         </button>
       )}
