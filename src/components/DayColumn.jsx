@@ -1,21 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import EntryForm from "./EntryForm";
 
 const DayColumn = ({ day, exercises, setWeekData }) => {
-  const addExercise = () => {
-  const name = prompt("Enter exercise name:");
-  if (!name) return;
+  const [newExerciseName, setNewExerciseName] = useState("");
+  const [showInput, setShowInput] = useState(false);
 
-  setWeekData(prev => {
-    const updated = [...prev[day]];
-    updated.push({ name, sets: [] });  // <-- Always start with empty sets
-    return { ...prev, [day]: updated };
-  });
-};
+  const addExercise = () => {
+    if (!newExerciseName.trim()) return;
+
+    setWeekData(prev => {
+      const updated = [...prev[day]];
+      updated.push({ name: newExerciseName, sets: [] });
+      return { ...prev, [day]: updated };
+    });
+    setNewExerciseName("");
+    setShowInput(false);
+  };
 
   return (
     <div className="border rounded-xl p-4 shadow-sm">
-      <h2 className="w-24 font-bold border-b-4 border-purple-600 pb-2 text-center">{day}</h2>
+      <h2 className="w-24 font-bold border-b-4 border-purple-200 pb-2 text-center">{day}</h2>
+
       {exercises.map((exercise, i) => (
         <EntryForm
           key={i}
@@ -25,9 +30,30 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
           setWeekData={setWeekData}
         />
       ))}
-      <button className="mt-2 text-sm text-blue-600" onClick={addExercise}>
-        ➕ Add Exercise
-      </button>
+
+      {showInput ? (
+        <div className="flex flex-col gap-2 mt-2">
+          <input
+            type="text"
+            placeholder="Exercise name"
+            className="border px-2 py-1 rounded text-sm"
+            value={newExerciseName}
+            onChange={(e) => setNewExerciseName(e.target.value)}
+          />
+          <div className="flex gap-2">
+            <button onClick={addExercise} className="text-sm bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">
+              ✅ Add
+            </button>
+            <button onClick={() => { setShowInput(false); setNewExerciseName(""); }} className="text-sm text-red-500">
+              ❌ Cancel
+            </button>
+          </div>
+        </div>
+      ) : (
+        <button className="mt-2 text-sm text-blue-600" onClick={() => setShowInput(true)}>
+          ➕ Add Exercise
+        </button>
+      )}
     </div>
   );
 };
