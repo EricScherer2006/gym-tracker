@@ -19,7 +19,7 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
 
   return (
     <div className="border rounded-xl p-4 shadow-sm">
-      <h2 className="w-24 font-bold border-b-4 border-purple-200 pb-2 text-center">{day}</h2>
+      <h2 className="w-24 font-bold pb-2 text-center text-pink-200 underline text-lg">{day}</h2>
 
       {exercises.map((exercise, i) => (
         <EntryForm
