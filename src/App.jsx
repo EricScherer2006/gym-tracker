@@ -14,6 +14,17 @@ const App = () => {
     }, {})
   );
 
+  const resetWeek = () => {
+    if(window.confirm("Are you sure you want to reset your week? All Data will be Lost!")){
+      const clearedWeekData = days.reduce((acc, day) => {
+      acc[day] = [];
+      return acc;
+    }, {});
+    setWeekData(clearedWeekData);
+    }
+
+  }
+
   useEffect(() => {
     const saved = loadWeekData();
     if (saved){
@@ -47,6 +58,12 @@ const App = () => {
         <p className="text-right text-white text-xs">
           Contact:scherereric9@gmail.com
         </p>
+
+        <button className="text-sm bg-red-500 text-white px-2 py-0.5 leading-none rounded-sm hover:bg-red-600" 
+        onClick = {resetWeek}
+        >
+          Reset-Week
+        </button> 
       </header>
 
       <WeekView weekData={weekData} setWeekData={setWeekData} />
