@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import EntryForm from "./EntryForm";
+import ExerciseSection from "./ExcersiceSection";
 
 const DayColumn = ({ day, exercises, setWeekData }) => {
   const [newExerciseName, setNewExerciseName] = useState("");
@@ -19,17 +20,18 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
 
   return (
     <div className="border rounded-xl p-4 shadow-sm">
-      <h2 className="w-24 font-bold pb-2 text-center text-pink-200 underline text-lg">{day}</h2>
 
-      {exercises.map((exercise, i) => (
-        <EntryForm
-          key={i}
-          day={day}
-          exerciseIndex={i}
-          exercise={exercise}
-          setWeekData={setWeekData}
-        />
-      ))}
+      <div>
+        {exercises.map((exercise, index) => (
+          <ExerciseSection
+            key={index}
+            exercise={exercise}
+            exerciseIndex={index}
+            day={day}
+            setWeekData={setWeekData}
+          />
+        ))}
+      </div>
 
       {showInput ? (
         <div className="flex flex-col gap-2 mt-2">
