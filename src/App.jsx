@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import WeekView from "./components/WeekView";
+import { saveWeekData, loadWeekData } from "./services/dataService";
 import './app.css';
 import barbellLogo from './assets/barbell-7834321_640.jpg';
 
@@ -12,6 +13,18 @@ const App = () => {
       return acc;
     }, {})
   );
+
+  useEffect(() => {
+    const saved = loadWeekData();
+    if (saved){
+       setWeekData(saved);
+    }
+  }, []);
+
+  useEffect(() => {
+    saveWeekData(weekData);
+  }, [weekData]);
+
 
   return(
   <div className="min-h-screen bg-gray-600 p-4">
@@ -35,5 +48,6 @@ const App = () => {
     </div>
   );
 }
+
 
 export default App;
