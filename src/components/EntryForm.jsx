@@ -17,23 +17,29 @@ const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
 };
 
   const updateSet = (setIndex, key, value) => {
-    setWeekData(prev => {
-      const updated = [...prev[day]];
-      const updatedSets = [...exercise.sets];
-      updatedSets[setIndex] = { ...updatedSets[setIndex], [key]: Number(value) };
-      updated[exerciseIndex] = { ...exercise, sets: updatedSets };
-      return { ...prev, [day]: updated };
-    });
-  };
+  setWeekData(prev => {
+    const updated = [...prev[day]];
+    const currentExercise = updated[exerciseIndex];
+
+    const updatedSets = [...(currentExercise.sets || [])];
+    updatedSets[setIndex] = { ...updatedSets[setIndex], [key]: Number(value) };
+
+    updated[exerciseIndex] = { ...currentExercise, sets: updatedSets };
+    return { ...prev, [day]: updated };
+  });
+};
 
   const removeSet = (setIndex) => {
-    setWeekData(prev => {
-      const updated = [...prev[day]];
-      const filteredSets = exercise.sets.filter((_, i) => i !== setIndex);
-      updated[exerciseIndex] = { ...exercise, sets: filteredSets };
-      return { ...prev, [day]: updated };
-    });
-  };
+  setWeekData(prev => {
+    const updated = [...prev[day]];
+    const currentExercise = updated[exerciseIndex];
+
+    const filteredSets = (currentExercise.sets || []).filter((_, i) => i !== setIndex);
+
+    updated[exerciseIndex] = { ...currentExercise, sets: filteredSets };
+    return { ...prev, [day]: updated };
+  });
+};
 
   return (
     <div className="mb-4 border p-2 rounded bg-gray-600">

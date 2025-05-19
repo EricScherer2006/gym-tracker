@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import WeekView from "./components/WeekView";
 import { saveWeekData, loadWeekData } from "./services/dataService";
 import './app.css';
@@ -21,10 +21,15 @@ const App = () => {
     }
   }, []);
 
+  const isFirstRender = useRef(true);
+
   useEffect(() => {
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      return; 
+    }
     saveWeekData(weekData);
   }, [weekData]);
-
 
   return(
   <div className="min-h-screen bg-gray-600 p-4">
