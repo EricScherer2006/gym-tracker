@@ -9,9 +9,27 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
           type="number"
           min="0"
           step="1"
-          value={reps}
-          onChange={e => onChange("reps", e.target.value)}
-          className="w-16 min-w-0 border px-1 py-1 rounded"
+          value={Number.isNaN(reps) ? "" : reps}
+          onChange={(e) => {
+            const val = e.target.value;
+
+            if (val === "") {
+              onChange("reps", NaN); // Temporarily empty
+            } else {
+              const parsed = parseInt(val, 10);
+              if (!isNaN(parsed)) {
+                onChange("reps", Math.max(0, parsed)); // Ensure positive integer
+              }
+            }
+          }}
+          onBlur={(e) => {
+            if (e.target.value === "") {
+              onChange("reps", 0); // Restore 0 if left empty
+            }
+          }}
+          style={{ width: "60px" }}
+        />
+          <span className="w-16 min-w-0 border px-1 py-1 rounded"
         />
       </label>
 
@@ -22,9 +40,21 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
             type="number"
             min="0"
             step="any"
-            value={weight}
-            onChange={e => onChange("weight", e.target.value)}
-            className="w-20 min-w-0 border px-1 py-1 rounded"
+            value={Number.isNaN(weight) ? "" : weight}
+            onChange={(e) => {
+              const val = e.target.value;
+              if (val === "") {
+                onChange("weight", NaN); // Temporarily unset
+              } else {
+                onChange("weight", parseFloat(val));
+              }
+            }}
+            onBlur={(e) => {
+              if (e.target.value === "") {
+                onChange("weight", 0); // Restore 0 if left empty
+              }
+            }}
+            style={{ width: "60px" }}
           />
           <span className="ml-1 whitespace-nowrap">kg</span>
         </div>
