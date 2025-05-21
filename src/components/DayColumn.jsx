@@ -52,7 +52,7 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
           </div>
         </div>
       ) : (
-        <button className="mt-2 text-sm text-white-100" onClick={() => setShowInput(true)}>
+        <button className="mt-2 text-sm text-pink-200" onClick={() => setShowInput(true)}>
           ➕ Add Exercise
         </button>
       )}

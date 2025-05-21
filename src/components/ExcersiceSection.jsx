@@ -12,7 +12,7 @@ const ExerciseSection = ({ exercise, exerciseIndex, day, setWeekData }) => {
         className="flex justify-between items-center cursor-pointer select-none"
         onClick={toggleExpanded}
       >
-        <h3 className="font-semibold text-pink-200 text-sm underline">{exercise.name}</h3>
+        <h3 className="font-semibold text-pink-300 text-sm underline">{exercise.name}</h3>
         <button
           className="text-sm text-pink-400 hover:text-pink-600"
           aria-label={expanded ? "Collapse exercise" : "Expand exercise"}
