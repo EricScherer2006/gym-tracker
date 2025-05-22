@@ -19,7 +19,7 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
   };
 
   return (
-    <div className="border rounded-xl p-4 shadow-sm">
+    <div className="border rounded-xl p-2">
 
       <div>
         {exercises.map((exercise, index) => (
@@ -43,16 +43,16 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
             onChange={(e) => setNewExerciseName(e.target.value)}
           />
           <div className="flex gap-2">
-            <button onClick={addExercise} className="text-sm bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600">
+            <button onClick={addExercise} className="text-sm bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 focus:outline-none">
               ✅ Add
             </button>
-            <button onClick={() => { setShowInput(false); setNewExerciseName(""); }} className="text-sm bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600">
+            <button onClick={() => { setShowInput(false); setNewExerciseName(""); }} className="text-sm bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 focus:outline-none">
               ❌ Cancel
             </button>
           </div>
         </div>
       ) : (
-        <button className="mt-2 text-sm text-pink-200" onClick={() => setShowInput(true)}>
+        <button className="mt-2 text-sm text-pink-200 focus:outline-none" onClick={() => setShowInput(true)}>
           ➕ Add Exercise
         </button>
       )}
