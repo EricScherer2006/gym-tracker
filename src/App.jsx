@@ -22,6 +22,7 @@ const App = () => {
     }, {});
     setWeekData(clearedWeekData);
     }
+    localStorage.removeItem("weekData");
 
   }
 
