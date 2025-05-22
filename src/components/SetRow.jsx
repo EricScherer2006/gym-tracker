@@ -4,7 +4,7 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
   return (
     <div className="flex flex-wrap gap-4 items-center mb-1 bg-orange-200 p-2 rounded">
 
-      <label className="flex items-center gap-1 w-36">
+      <label className="flex items-center gap-1">
         <span className="w-12">Reps:</span>   
         <input
           type="number"
@@ -28,21 +28,20 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
               onChange("reps", 0); // Restore 0 if left empty
             }
           }}
-          className="w-14 px-1 py-0.5 border rounded text-right text-sm"
+          className="w-14 px-1 py-0.5 border rounded text-right text-sm ml-1.5"
         />
       </label>
       
       <button
         onClick={onRemove}
-        className="text-xs bg-red-500 text-white px-2 py-0.5 leading-none rounded-sm hover:bg-red-600"
+        className="text-xs bg-red-500 text-white px-1.5 py-0.5 leading-none rounded-sm hover:bg-red-600"
       >
         X
       </button>
 
-      <label className="flex items-center gap-1 w-40">
-        Weight:
-        <div className="w-12 text-right">
-          <input
+      <label className="flex items-center gap-1">
+        <span >Weight:</span>
+        <input
             type="number"
             min="0"
             step="any"
@@ -62,9 +61,9 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
             }}
             className="w-14 px-1 py-0.5 border rounded text-right text-sm"
           />
-          <span className="ml-1 whitespace-nowrap text-xs">kg</span>
-        </div>
+          <span className="whitespace-nowrap text-xs ml-2">kg</span>
       </label>
+
     </div>
   );
 };

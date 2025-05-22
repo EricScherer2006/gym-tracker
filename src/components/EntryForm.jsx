@@ -46,7 +46,7 @@ const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
       <div className="flex justify-between items-center">
         {/*<h3 className="font-semibold text-pink-200 text-sm underline">{exercise.name}</h3>*/}
         <button
-          className="text-xs bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+          className="text-sm bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
           onClick={() => {
             setWeekData(prev => {
               const updated = prev[day].filter((_, i) => i !== exerciseIndex);
