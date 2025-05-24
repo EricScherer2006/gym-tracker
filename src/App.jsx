@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import WeekView from "./components/WeekView";
 import { saveWeekData, loadWeekData } from "./services/dataService";
-import './app.css';
+import './App.css';
 import barbellLogo from './assets/barbell-7834321_640.jpg';
 
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
