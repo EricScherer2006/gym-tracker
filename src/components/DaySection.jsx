@@ -1,6 +1,8 @@
 import { useState } from "react";
 import DayColumn from "./DayColumn";
 
+// DaySection.jsx
+/* Displays one day's section with toggle to expand/collapse its exercises */
 const DaySection = ({ day, exercises, setWeekData }) => {
   const [expanded, setExpanded] = useState(true);
 

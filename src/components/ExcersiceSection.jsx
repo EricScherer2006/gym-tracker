@@ -1,7 +1,12 @@
 import { useState } from "react";
 import EntryForm from "./EntryForm";
 
+//ExcersiceSection.jsx
+/* ExerciseSection component displays a single exercise with
+   the ability to toggle showing/hiding its details (EntryForm).*/
+
 const ExerciseSection = ({ exercise, exerciseIndex, day, setWeekData }) => {
+  
   const [expanded, setExpanded] = useState(true);
 
   const toggleExpanded = () => setExpanded((prev) => !prev);

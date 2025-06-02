@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import EntryForm from "./EntryForm";
 import ExerciseSection from "./ExcersiceSection";
 
+// DayColumn.jsx
+/* Displays one day's column with exercises and option to add new ones */
+
 const DayColumn = ({ day, exercises, setWeekData }) => {
   const [newExerciseName, setNewExerciseName] = useState("");
   const [showInput, setShowInput] = useState(false);
 
+   // Adds a new exercise to the day's list if name is not empty
   const addExercise = () => {
     if (!newExerciseName.trim()) return;
 
@@ -17,6 +21,7 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
     setNewExerciseName("");
     setShowInput(false);
   };
+
 
   return (
     <div className="border rounded-xl p-2">
@@ -32,7 +37,8 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
           />
         ))}
       </div>
-
+      
+      {/* Show input field for new exercise or Add button */}
       {showInput ? (
         <div className="flex flex-col gap-2 mt-2">
           <input

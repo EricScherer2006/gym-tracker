@@ -1,8 +1,11 @@
 import React from "react";
 import SetRow from "./SetRow";
 
-const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
+// EntryForm.jsx
+/* Component for adding new workout entries (exercise name, sets, reps, weight) */
 
+const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
+  // Adds a new empty set (0 reps, 0 weight) to the current exercise
   const addSet = () => {
   setWeekData(prev => {
     const updated = [...prev[day]];
@@ -15,7 +18,7 @@ const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
     return { ...prev, [day]: updated };
   });
 };
-
+  // Updates a single set (identified by index) when reps or weight are changed
   const updateSet = (setIndex, key, value) => {
   setWeekData(prev => {
     const updated = [...prev[day]];
@@ -28,7 +31,7 @@ const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
     return { ...prev, [day]: updated };
   });
 };
-
+  // Removes a specific set from the current exercise
   const removeSet = (setIndex) => {
   setWeekData(prev => {
     const updated = [...prev[day]];
@@ -40,7 +43,7 @@ const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
     return { ...prev, [day]: updated };
   });
 };
-
+  // JSX structure for displaying the exercise and its sets
   return (
     <div className="mb-4 border p-2 rounded bg-gray-600 lg:mb-3 ">
       <div className="flex justify-between items-center">

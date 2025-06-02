@@ -4,8 +4,12 @@ import { saveWeekData, loadWeekData } from "./services/dataService";
 import './App.css';
 import barbellLogo from './assets/barbell-7834321_640.jpg';
 
+// App.jsx
+/* Days of the week used as keys in weekData */
+
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
+// State holds exercises for each day, initialized as empty arrays
 const App = () => {
   const [weekData, setWeekData] = useState(
     days.reduce((acc, day) => {
@@ -14,6 +18,7 @@ const App = () => {
     }, {})
   );
 
+  // Resets the week data after confirmation, clears localStorage
   const resetWeek = () => {
     if(window.confirm("Are you sure you want to reset your week? All Data will be Lost!")){
       const clearedWeekData = days.reduce((acc, day) => {
@@ -26,6 +31,7 @@ const App = () => {
 
   }
 
+  // On mount, load saved data from localStorage
   useEffect(() => {
     const saved = loadWeekData();
     if (saved){
@@ -33,8 +39,10 @@ const App = () => {
     }
   }, []);
 
+  // Skip saving to localStorage on initial render
   const isFirstRender = useRef(true);
 
+  // Save weekData to localStorage whenever it changes (except first render)
   useEffect(() => {
     if (isFirstRender.current) {
       isFirstRender.current = false;

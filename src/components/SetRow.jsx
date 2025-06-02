@@ -1,5 +1,9 @@
 import React from "react";
 
+// SetRow.jsx
+/* Renders a single set with weight and reps, including edit and delete options
+   including validation and options to edit or delete the set. */
+
 const SetRow = ({ reps, weight, onChange, onRemove }) => {
   return (
     <div className="flex flex-wrap gap-4 items-center mb-1 bg-orange-200 p-2 rounded">
@@ -10,28 +14,28 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
           type="number"
           min="0"
           step="1"
-          value={Number.isNaN(reps) ? "" : reps}
+          value={Number.isNaN(reps) ? "" : reps} // Show empty input if reps is NaN
           onChange={(e) => {
             const val = e.target.value;
 
             if (val === "") {
-              onChange("reps", NaN); // Temporarily empty
+              onChange("reps", NaN); 
             } else {
               const parsed = parseInt(val, 10);
               if (!isNaN(parsed)) {
-                onChange("reps", Math.max(0, parsed)); // Ensure positive integer
+                onChange("reps", Math.max(0, parsed)); 
               }
             }
           }}
           onBlur={(e) => {
             if (e.target.value === "") {
-              onChange("reps", 0); // Restore 0 if left empty
+              onChange("reps", 0); 
             }
           }}
           className="w-14 px-1 py-0.5 border rounded text-right text-sm ml-1.5 "
         />
       </label>
-      
+      {/* Button to remove the entire set */}
       <button
         onClick={onRemove}
         className="text-xs bg-red-500 text-white px-1.5 py-0.5 leading-none rounded-sm hover:bg-red-600"
@@ -45,7 +49,7 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
             type="number"
             min="0"
             step="any"
-            value={Number.isNaN(weight) ? "" : weight}
+            value={Number.isNaN(weight) ? "" : weight} // Show empty if NaN
             onChange={(e) => {
               const val = e.target.value;
               if (val === "") {
