@@ -28,7 +28,7 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
               onChange("reps", 0); // Restore 0 if left empty
             }
           }}
-          className="w-14 px-1 py-0.5 border rounded text-right text-sm ml-1.5"
+          className="w-14 px-1 py-0.5 border rounded text-right text-sm ml-1.5 "
         />
       </label>
       
@@ -40,7 +40,7 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
       </button>
 
       <label className="flex items-center gap-1">
-        <span >Weight:</span>
+        <span className ="">Weight:</span>
         <input
             type="number"
             min="0"
@@ -61,12 +61,11 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
             }}
             className="w-14 px-1 py-0.5 border rounded text-right text-sm"
           />
-          <span className="whitespace-nowrap text-xs ml-2">kg</span>
+          <span className="whitespace-nowrap text-xs ml-4">kg</span>
       </label>
 
     </div>
   );
 };
-
 
 export default SetRow;

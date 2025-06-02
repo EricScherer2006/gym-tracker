@@ -2,7 +2,7 @@ import DaySection from "./DaySection";
 
 const WeekView = ({ weekData, setWeekData }) => {
   return (
-    <div className="fullscreen flex space-x-4">
+    <div className="fullscreen flex space-x-4 ">
       {Object.entries(weekData).map(([day, exercises]) => (
         <div key={day} className="flex-1 min-w-0">
           <DaySection day={day} exercises={exercises} setWeekData={setWeekData} />

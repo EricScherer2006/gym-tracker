@@ -42,11 +42,11 @@ const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
 };
 
   return (
-    <div className="mb-4 border p-2 rounded bg-gray-600">
+    <div className="mb-4 border p-2 rounded bg-gray-600 lg:mb-3 ">
       <div className="flex justify-between items-center">
         {/*<h3 className="font-semibold text-pink-200 text-sm underline">{exercise.name}</h3>*/}
         <button
-          className="text-sm bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600"
+          className="text-sm bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 "
           onClick={() => {
             setWeekData(prev => {
               const updated = prev[day].filter((_, i) => i !== exerciseIndex);
@@ -68,7 +68,7 @@ const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
         />
       ))}
 
-      <button className="text-sm bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600" onClick={addSet}>
+      <button className="text-sm bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 " onClick={addSet}>
         +Add Set
       </button>
     </div>

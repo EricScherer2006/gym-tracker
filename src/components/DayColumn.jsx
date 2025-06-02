@@ -38,7 +38,7 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
           <input
             type="text"
             placeholder="Exercise name"
-            className="border px-2 py-1 rounded text-sm"
+            className="border px-2 py-1 rounded text-sm "
             value={newExerciseName}
             onChange={(e) => setNewExerciseName(e.target.value)}
           />
