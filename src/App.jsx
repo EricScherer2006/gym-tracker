@@ -51,34 +51,43 @@ const App = () => {
     saveWeekData(weekData);
   }, [weekData]);
 
-  return(
+  return (
   <div className="min-h-screen bg-gray-600 p-4">
-      <header className="relative flex items-center justify-between min-h-[4rem]">
-        <h1 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                      text-blue-400 text-3xl font-extrabold underline whitespace-nowrap">
-          Gym Tracker
-        </h1>
+    <header className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-2 min-h-[4rem]">
+      <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-4">
         <img
           src={barbellLogo}
           alt="Barbell Logo"
-          className="relative ml-[calc(50%+7rem)] h-10 w-auto object-contain rounded-md"
+          className="h-10 w-auto object-contain rounded-md"
         />
 
-        <p className="text-right text-white text-xs">
-          Contact:scherereric9@gmail.com
-        </p>
+        <h1 className="text-blue-400 text-3xl font-extrabold underline whitespace-nowrap
+                       text-center sm:text-left md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+          Gym Tracker
+        </h1>
 
-        <button className="text-sm bg-red-500 text-white px-2 py-0.5 leading-none rounded-sm hover:bg-red-600" 
-        onClick = {resetWeek}
+        <p className="text-white text-xs text-center mt-1 sm:mt-0 sm:text-left sm:ml-4 md:hidden">
+          Contact: scherereric9@gmail.com
+        </p>
+      </div>
+
+      <div className="mt-2 sm:mt-0 w-full sm:w-auto">
+        <button
+          className="text-sm bg-red-500 text-white px-2 py-0.5 leading-none rounded-sm hover:bg-red-600
+                     block mx-auto sm:ml-[6px] md:mx-0"
+          onClick={resetWeek}
         >
           Reset-Week
-        </button> 
-      </header>
+        </button>
+      </div>
 
-      <WeekView weekData={weekData} setWeekData={setWeekData} />
-    </div>
+      
+      
+    </header>
+
+    <WeekView weekData={weekData} setWeekData={setWeekData} />
+  </div>
   );
-}
-
+};
 
 export default App;

@@ -8,7 +8,7 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
   return (
     <div className="flex flex-wrap gap-4 items-center mb-1 bg-orange-200 p-2 rounded">
 
-      <label className="flex items-center gap-1">
+      <label className="flex items-center gap-1 min-w-[110px]">
         <span className="w-12">Reps:</span>   
         <input
           type="number"
@@ -43,7 +43,7 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
         X
       </button>
 
-      <label className="flex items-center gap-1">
+      <label className="flex items-center gap-1 min-w-[140px]">
         <span className ="">Weight:</span>
         <input
             type="number"

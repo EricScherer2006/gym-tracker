@@ -40,19 +40,19 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
       
       {/* Show input field for new exercise or Add button */}
       {showInput ? (
-        <div className="flex flex-col gap-2 mt-2">
+        <div className="flex flex-col gap-2 mt-2 xl:flex-col xl:gap-2 xl:mt-2">
           <input
             type="text"
             placeholder="Exercise name"
-            className="border px-2 py-1 rounded text-sm "
+            className="border px-2 py-1 rounded text-sm w-full xl:w-auto"
             value={newExerciseName}
             onChange={(e) => setNewExerciseName(e.target.value)}
           />
-          <div className="flex gap-2">
-            <button onClick={addExercise} className="text-sm bg-green-500 text-white px-2 py-1 rounded hover:bg-green-600 focus:outline-none">
+          <div className="flex flex-col gap-2 xl:flex-row xl:gap-2">
+            <button onClick={addExercise} className="text-xs xl:text-sm bg-green-500 text-white px-2 py-1  rounded hover:bg-green-600 focus:outline-none">
               ✅ Add
             </button>
-            <button onClick={() => { setShowInput(false); setNewExerciseName(""); }} className="text-sm bg-red-500 text-white px-2 py-1 rounded hover:bg-red-600 focus:outline-none">
+            <button onClick={() => { setShowInput(false); setNewExerciseName(""); }} className="text-xs xl:text-sm bg-red-500 text-white px-2 py-1  rounded hover:bg-red-600 focus:outline-none">
               ❌ Cancel
             </button>
           </div>
