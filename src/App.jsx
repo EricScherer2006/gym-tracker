@@ -73,12 +73,17 @@ const App = () => {
 
       <div className="mt-2 sm:mt-0 w-full sm:w-auto">
         <button
-          className="text-sm bg-red-500 text-white px-2 py-0.5 leading-none rounded-sm hover:bg-red-600
-                     block mx-auto sm:ml-[6px] md:mx-0"
-          onClick={resetWeek}
+          className="text-sm bg-red-500 text-white px-3 py-1 rounded-full shadow-sm hover:bg-red-600 transition 
+                    block mx-auto sm:ml-[6px] md:mx-0 text-center"
+          onClick={() => {
+            if (confirm("Are you sure you want to reset the entire week? This cannot be undone and all Data will be Lost.")) {
+             resetWeek();
+            }
+          }}
         >
-          Reset-Week
+          🔁 Reset Week
         </button>
+
       </div>
 
       

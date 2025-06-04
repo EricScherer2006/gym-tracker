@@ -19,6 +19,7 @@ Here’s how it looks in action:
 - Weekly calendar view with editable weight entries per day.
 - Add multiple exercises per day, each with its own name and weight.
 - **Collapsible exercise list per day** — toggle visibility to keep the interface clean.
+- Responsive design supporting screens **250 pixels wide and above**, with custom Tailwind breakpoints for fine layout control (notably between 1536px and 1773px)
 - All data is saved in the browser using `localStorage` — no backend required.
 - Reset week button clears all current progress (non-persistent).
 - **Planned in 2.0 Version**: Backend with progress analytics to track reps and weight increases over time.
@@ -41,6 +42,15 @@ This is my **first frontend project**, created as a learning exercise to underst
 - LocalStorage
 - Tailwind
 
+## 📱 Responsiveness
+
+This app is responsive for screens **250 pixels wide and above**.
+
+- Input fields, buttons, and text dynamically resize and reposition to maintain usability on various device sizes.
+- Wrapping of elements is enabled where necessary to avoid overflow while keeping the UI clean and accessible.
+- Important action buttons adapt by showing icons only in tighter layouts to save space and prevent awkward line breaks.
+- Custom Tailwind CSS breakpoints provide precise control over layout adjustments, especially between **1536px and 1773px**.
+
 ## 📋 License
 
 This project is licensed under the **Apache 2.0 License** — see `LICENSE` for details.
@@ -56,7 +66,7 @@ This project is licensed under the **Apache 2.0 License** — see `LICENSE` for 
 > - User login and profiles.
 > - Graphs and insights showing weight/reps progress over time.
 
-Clone and run locally:
+Clone and run locally (Node.js and Vite required):
 
 ```bash
 git clone https://github.com/EricScherer2006/gym-tracker.git
