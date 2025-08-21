@@ -38,7 +38,7 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
       <button
         onClick={onRemove}
         aria-label="Remove set"
-        className="text-xs bg-red-500 text-white px-1.5 py-0.5 leading-none rounded-sm hover:bg-red-600 mt-[1px]"
+        className="text-xs bg-red-500 text-white px-1.5 py-0.5 -ml-3 sm:-ml-3 md:-ml-3 xl:ml-0 leading-none rounded-sm hover:bg-red-600 mt-[1px]"
       >
         X
       </button>

@@ -76,9 +76,8 @@ const App = () => {
           className="text-sm bg-red-500 text-white px-3 py-1 rounded-full shadow-sm hover:bg-red-600 transition 
                     block mx-auto sm:ml-[6px] md:mx-0 text-center"
           onClick={() => {
-            if (confirm("Are you sure you want to reset the entire week? This cannot be undone and all Data will be Lost.")) {
              resetWeek();
-            }
+            
           }}
         >
           🔁 Reset Week
