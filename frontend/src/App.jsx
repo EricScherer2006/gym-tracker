@@ -7,7 +7,7 @@ import barbellLogo from './assets/barbell-7834321_640.jpg';
 const days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
 // Backend End-Point
-const BACKEND_URL = "http://127.0.0.1:8000/workouts/";
+const BACKEND_URL = import.meta.env.VITE_BACKEND_URL + "/workouts/";
 
 const App = () => {
   const [weekData, setWeekData] = useState(

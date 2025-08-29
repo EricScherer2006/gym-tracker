@@ -2,6 +2,7 @@
 
 A simple, lightweight weekly gym progress tracker. Designed to help users log daily exercises and weights without needing an account or database.
 
+
 🟢 Live: [https://eric-gym-tracker.netlify.app](https://eric-gym-tracker.netlify.app)
 
 ---
@@ -10,7 +11,7 @@ A simple, lightweight weekly gym progress tracker. Designed to help users log da
 
 Here’s how it looks in action:
 
-![Demo](src/assets/gym-tracker-demo.gif)
+![Demo](frontend/src/assets/gym-tracker-demo.gif)
 
 ---
 
