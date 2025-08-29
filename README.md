@@ -14,6 +14,16 @@ Here’s how it looks in action:
 
 ---
 
+## 🔧 Development Branch
+
+The `drestucture-fastapi` branch contains the latest development work, including:
+
+- Initial backend (FastAPI) setup with Docker
+- Docker Compose configuration for frontend and backend
+- Early CORS and API environment variable setup
+
+> ⚠️ Note: Backend is still in early development. Data storage works, but full processing is not yet implemented.
+
 ## 📌 Features
 
 - Weekly calendar view with editable weight entries per day.
