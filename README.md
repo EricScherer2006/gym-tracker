@@ -16,7 +16,7 @@ Here’s how it looks in action:
 
 ## 🔧 Development Branch
 
-The `drestucture-fastapi` branch contains the latest development work, including:
+The `restucture-fastapi` branch contains the latest development work, including:
 
 - Initial backend (FastAPI) setup with Docker
 - Docker Compose configuration for frontend and backend
