@@ -25,20 +25,20 @@ jobs:
           docker compose -f docker-compose.yml up -d --build
 
       - name: Wait a little for services
-        run: sleep 8
+        run: sleep 15
 
       - name: Backend healthcheck
         run: |
           if ! curl --fail --retry 5 --retry-delay 2 --retry-connrefused --max-time 10 http://localhost:8000/; then
             echo "BACKEND failed to respond — dumping backend logs"
-            docker logs $(docker ps -qf "name=backend") || true
+            docker logs $(docker ps -aqf "name=backend") || true
             exit 1
           fi
 
       - name: Frontend healthcheck
         run: |
           if ! curl --fail --retry 5 --retry-delay 2 --retry-connrefused --max-time 10 http://localhost:3000/; then
-            docker logs $(docker ps -qf "name=frontend") || true
+            docker logs $(docker ps -aqf "name=frontend") || true
             exit 1
           fi
 
