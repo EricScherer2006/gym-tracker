@@ -1,0 +1,49 @@
+name: CI - docker-compose build & smoke tests
+
+on:
+  push:
+    branches: [ restructure-fastapi ]
+  pull_request:
+    branches: [ restructure-fastapi ]
+  merge:
+    branches: [ restructure-fastapi ]
+
+jobs:
+  build-and-smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Verify docker compose
+        run: docker compose version
+
+      - name: Build and start services
+        run: |
+          docker compose -f docker-compose.yml up -d --build
+
+      - name: Wait a little for services
+        run: sleep 8
+
+      - name: Backend healthcheck
+        run: |
+          if ! curl --fail --retry 5 --retry-delay 2 --retry-connrefused --max-time 10 http://localhost:8000/; then
+            echo "BACKEND failed to respond — dumping backend logs"
+            docker logs $(docker ps -qf "name=backend") || true
+            exit 1
+          fi
+          
+      - name: Frontend healthcheck
+        run: |
+          if ! curl --fail --retry 5 --retry-delay 2 --retry-connrefused --max-time 10 http://localhost:3000/; then
+            docker logs $(docker ps -qf "name=frontend") || true
+            exit 1
+          fi
+
+      - name: Tear down
+        if: always()
+        run: docker compose down --volumes
