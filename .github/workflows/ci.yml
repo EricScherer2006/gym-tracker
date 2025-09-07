@@ -5,8 +5,6 @@ on:
     branches: [ restructure-fastapi ]
   pull_request:
     branches: [ restructure-fastapi ]
-  merge:
-    branches: [ restructure-fastapi ]
 
 jobs:
   build-and-smoke:
@@ -36,7 +34,7 @@ jobs:
             docker logs $(docker ps -qf "name=backend") || true
             exit 1
           fi
-          
+
       - name: Frontend healthcheck
         run: |
           if ! curl --fail --retry 5 --retry-delay 2 --retry-connrefused --max-time 10 http://localhost:3000/; then
