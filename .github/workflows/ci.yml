@@ -2,9 +2,9 @@ name: CI - docker-compose build & smoke tests
 
 on:
   push:
-    branches: [ restructure-fastapi ]
+    branches: [ main ]
   pull_request:
-    branches: [ restructure-fastapi ]
+    branches: [ main ]
 
 jobs:
   build-and-smoke:
