@@ -1,13 +1,11 @@
 from fastapi import FastAPI, Depends
 from sqlalchemy.orm import Session
-from .database import engine, Base, SessionLocal
+# from .database import engine, Base, SessionLocal
 from fastapi.middleware.cors import CORSMiddleware
-from . import models, schemas
-from .schemas import EntryCreate
 
 app = FastAPI()
 
-Base.metadata.create_all(bind=engine)
+ # Base.metadata.create_all(bind=engine) # DB creation disabled
 
 # Allow frontend access
 
@@ -17,34 +15,19 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-# Dependency
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+
 
 # End-Point
 @app.post("/workouts/")
-async def add_workout(entry: EntryCreate, db: Session = Depends(get_db)):
-    from datetime import datetime
-    workout = models.Workout(
-        user_name=entry.user_name,
-        exercise=entry.exercise,
-        weight=entry.weight,
-        reps=entry.reps,
-        date=datetime.strptime(entry.date, "%Y-%m-%d").date()
-    )
-    db.add(workout)
-    db.commit()
-    db.refresh(workout)
-    return workout
+async def add_workout(entry: dict):
+     # Dummy response, data not stored
+    return {"message": "Demo only – data not stored", "entry": entry}
 
 @app.get("/workouts/")
-def list_workouts(db: Session = Depends(get_db)):
-    return db.query(models.Workout).all()
+def list_workouts():
+    # Dummy data
+    return [{"exercise": "Bench Press", "weight": 100, "reps": 10, "day": "Monday"}]
 
 @app.get("/")
 def read_root():
-    return {"message": "Gym Tracker API is running"}
+    return {"message": "Gym Tracker API placeholder - no data stored"}
