@@ -1,8 +1,9 @@
 # 🏋️‍♂️ Gym Tracker
 
-A simple, lightweight weekly gym progress tracker. Designed to help users log daily exercises and weights without needing an account or database.
+A simple, lightweight weekly gym progress tracker. Designed to help users log daily exercises and weights without needing an account or database (data stays in the browser; privacy-focused by default).
 
-🟢 Live: [https://eric-gym-tracker.netlify.app](https://eric-gym-tracker.netlify.app)
+
+🟢 Live (Frontend only) : [https://eric-gym-tracker.netlify.app](https://eric-gym-tracker.netlify.app)
 
 ---
 
@@ -10,19 +11,9 @@ A simple, lightweight weekly gym progress tracker. Designed to help users log da
 
 Here’s how it looks in action:
 
-![Demo](src/assets/gym-tracker-demo.gif)
+![Demo](frontend/src/assets/gym-tracker-demo.gif)
 
 ---
-
-## 🔧 Development Branch
-
-The `restucture-fastapi` branch contains the latest development work, including:
-
-- Initial backend (FastAPI) setup with Docker
-- Docker Compose configuration for frontend and backend
-- Early CORS and API environment variable setup
-
-> ⚠️ Note: Backend is still in early development. Data storage works, but full processing is not yet implemented.
 
 ## 📌 Features
 
@@ -30,27 +21,26 @@ The `restucture-fastapi` branch contains the latest development work, including:
 - Add multiple exercises per day, each with its own name and weight.
 - **Collapsible exercise list per day** — toggle visibility to keep the interface clean.
 - Responsive design supporting screens **250 pixels wide and above**, with custom Tailwind breakpoints for fine layout control (notably between 1536px and 1773px)
-- All data is saved in the browser using `localStorage` — no backend required.
 - Reset week button clears all current progress (non-persistent).
-- **Planned in 2.0 Version**: Backend with progress analytics to track reps and weight increases over time.
+- **Planned in 2.0 Version**: Progress analytics with charts for **dummy data** only.
 
-## 🚀 How It Works
+## 🚀 How It Works and Disclaimers
 
 - Built with **React** and simple HTML/CSS.
 - User data (exercise name and weight per day) is stored in the browser's `localStorage`.
-- No external APIs or tracking — privacy-focused by default.
+- Full-stack setup (for learning purposes): Includes a FastAPI backend, Docker setup, and a CI/CD workflow. The backend is **not connected in the live demo**; only frontend data is used.
+-The live demo hosted on Netlify **does not collect or transmit any user data**; all entries are saved locally in the browser, **accessible only on the device used**, and are not sent to a backend or stored elsewhere.
+
 
 ## 💼 Note to Recruiters
 
-This is my **first frontend project**, created as a learning exercise to understand React, browser storage, and UI design. While basic in functionality, it's actively being expanded and serves as the foundation for more advanced full-stack features. I'm focused on writing clean, modular code and gradually improving UX responsiveness and visual consistency.
+This is my **first frontend project**, created as a learning exercise to understand React, browser storage, and UI design. While basic in functionality, it's actively being expanded and serves as the foundation for more advanced full-stack and dev-ops features. I'm focused on writing clean, modular code and gradually improving UX responsiveness and visual consistency.
 
 ## 🛠️ Tech Stack
 
-- React
-- HTML/CSS
-- JavaScript
-- LocalStorage
-- Tailwind
+- React, JavaScript, HTML/CSS, Tailwind (Frontend)
+- Python (FastAPI), Docker (docker-compose) , GitHub Actions CI/CD (Backend / DevOps experiments)
+- LocalStorage (Data storage)
 
 ## 📱 Responsiveness
 
@@ -69,17 +59,10 @@ This project is licensed under the **Apache 2.0 License** — see `LICENSE` for 
 
 ## 💡 Development Notes
 
-> This project is under active development.
+> This project was intentionally designed as a **frontend-only application**.  
+> User data is stored locally in the browser via `localStorage` — no backend or external server is used.  
 >
-> Future versions will include:
-> - Persistent backend storage (e.g., Springboot + DB).
-> - User login and profiles.
-> - Graphs and insights showing weight/reps progress over time.
-
-Clone and run locally (Node.js and Vite required):
-
-```bash
-git clone https://github.com/EricScherer2006/gym-tracker.git
-cd gym-tracker
-npm install
-npm run dev
+> For learning purposes, I experimented with a **Dockerized FastAPI backend** and **GitHub Actions CI/CD workflows**.  
+> However, due to privacy considerations, a persistent backend is **not planned** for this project or may be simulated with **dummy data**.  
+>
+> Future work will instead focus on **UI/UX improvements** and frontend optimizations.
