@@ -15,7 +15,7 @@ Here’s how it looks in action:
 
 ## Mobile Demo
 
-[Demo](frontend/src/assets/Mobile_Demo.gif)
+![Demo](frontend/src/assets/Mobile_Demo.gif)
 
 ---
 
