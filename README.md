@@ -7,11 +7,15 @@ A simple, lightweight weekly gym progress tracker. Designed to help users log da
 
 ---
 
-## 🖼️ Demo
+## 🖼️ PC-Demo (outdated)
 
 Here’s how it looks in action:
 
 ![Demo](frontend/src/assets/gym-tracker-demo.gif)
+
+## Mobile Demo
+
+[Demo](frontend/src/assets/Mobile_Demo.gif)
 
 ---
 
