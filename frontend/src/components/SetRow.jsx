@@ -6,7 +6,7 @@ import React from "react";
 
 const SetRow = ({ reps, weight, onChange, onRemove }) => {
   return (
-    <div className="flex flex-wrap gap-x-2 gap-y-1 items-center mb-1 bg-orange-200 p-2 rounded">
+    <div className="flex flex-wrap gap-x-2 gap-y-1 items-center mb-1 bg-blue-300 p-2 rounded">
       
       <label className="flex items-center gap-1 min-w-[130px]">
         <span className="w-[50px] text-sm">Reps:</span>

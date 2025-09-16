@@ -45,10 +45,10 @@ const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
 };
   // JSX structure for displaying the exercise and its sets
   return (
-    <div className="mb-4 border p-2 rounded bg-gray-600 lg:mb-3 ">
+    <div className="mb-4 border border-slate-400 p-4 rounded bg-slate-700 lg:mb-3 ">
       <div className="flex justify-between items-center">
         <button
-          className="text-sm mb-2 text-red-400 border border-red-400 px-3 py-1 rounded-full hover:bg-red-500 hover:text-white transition"
+          className="text-sm mb-2 text-red-400 border border-red-400 px-3 py-0.5 rounded-full hover:bg-red-500 hover:text-white transition"
           onClick={() => {
             setWeekData(prev => {
               const updated = prev[day].filter((_, i) => i !== exerciseIndex);
@@ -72,7 +72,7 @@ const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
       ))}
 
       <button
-        className="mt-2 text-sm border border-green-500 text-green-500 px-3 py-1 rounded-full hover:bg-green-600 hover:text-white transitionn"
+        className="mt-2 text-sm border border-green-500 text-green-500 px-3 py-0.5 rounded-full hover:bg-green-600 hover:text-white transition"
         onClick={addSet}
       >
         ➕ Add Set

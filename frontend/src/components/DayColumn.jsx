@@ -24,7 +24,7 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
 
 
   return (
-    <div className="border rounded-xl p-2">
+    <div className= "border border-slate-400 rounded">
 
       <div>
         {exercises.map((exercise, index) => (
@@ -44,21 +44,24 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
           <input
             type="text"
             placeholder="Exercise name"
-            className="border px-2 py-1 rounded text-sm w-full xl:w-auto"
+            className="border ml-1 mr-1 px-2 py-1 rounded text-sm w-full xl:w-auto"
             value={newExerciseName}
             onChange={(e) => setNewExerciseName(e.target.value)}
           />
           <div className="flex flex-col gap-2 xl:flex-row xl:gap-2">
-            <button onClick={addExercise} className="text-xs xl:text-sm bg-green-500 text-white px-2 py-1  rounded hover:bg-green-600 focus:outline-none">
+            <button onClick={addExercise} className="text-xs xl:text-sm text-white px-2 py-1 ml-1  bg-slate-600 
+            rounded-md hover:text-white hover:bg-green-500 border border-green-500 transition focus:outline-none mb-1">
               ✅ Add
             </button>
-            <button onClick={() => { setShowInput(false); setNewExerciseName(""); }} className="text-xs xl:text-sm bg-red-500 text-white px-2 py-1  rounded hover:bg-red-600 focus:outline-none">
-              ❌ Cancel
+            <button onClick={() => { setShowInput(false); setNewExerciseName(""); }} className="text-xs xl:text-sm text-white px-2 py-1  
+            rounded-md hover:text-white border border-red-500 bg-slate-600 hover:bg-red-500 transition focus:outline-none mb-1">
+              <span className="text-red-500 mr-1">✕</span>
+               Cancel
             </button>
           </div>
         </div>
       ) : (
-        <button className="mt-2 text-sm text-pink-200 focus:outline-none" onClick={() => setShowInput(true)}>
+        <button className="mt-2 ml-2 mb-2 rounded px-2 py-1 text-sm text-pink-200 hover:bg-pink-300 border border-pink-200 transition focus:outline-none" onClick={() => setShowInput(true)}>
           ➕ Add Exercise
         </button>
       )}

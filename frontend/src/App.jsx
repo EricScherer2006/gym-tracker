@@ -3,6 +3,7 @@ import WeekView from "./components/WeekView";
 import { saveWeekData, loadWeekData } from "./services/dataService";
 import './App.css';
 import barbellLogo from './assets/barbell-7834321_640.jpg';
+import { FaGithub } from "react-icons/fa";
 
 // App.jsx
 /* Days of the week used as keys in weekData */
@@ -57,7 +58,7 @@ const App = () => {
   }, [weekData]);
 
   return (
-  <div className="min-h-screen bg-gray-600 p-4">
+  <div className="min-h-screen bg-slate-700 p-4">
     <header className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-2 min-h-[4rem]">
       <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-4">
         <img
@@ -71,14 +72,25 @@ const App = () => {
           Gym Tracker
         </h1>
 
-        <p className="text-white text-xs text-center mt-1 sm:mt-0 sm:text-left sm:ml-4 md:hidden">
-          Contact: scherereric9@gmail.com
-        </p>
+        <a
+          href="https://github.com/EricScherer2006/gym-tracker"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-600 transition-colors"
+        >
+          <span className="relative rounded-full border-2 border-gray-500 p-1 overflow-hidden">
+            <FaGithub className="w-5 h-5 relative z-10" />
+            <span className="absolute inset-0 animate-[shine_2s_linear_infinite] bg-gradient-to-r from-transparent via-white/30 to-transparent"></span>
+          </span>
+          <span>View on GitHub</span>
+          
+        </a>
+
       </div>
 
       <div className="mt-2 sm:mt-0 w-full sm:w-auto">
         <button
-          className="text-sm bg-red-500 text-white px-3 py-1 rounded-full shadow-sm hover:bg-red-600 transition 
+          className="text-sm bg-red-600 text-white px-3 py-1 rounded-full shadow-sm hover:bg-red-600 transition 
                     block mx-auto sm:ml-[6px] md:mx-0 text-center"
           onClick={() => {
              resetWeek();
