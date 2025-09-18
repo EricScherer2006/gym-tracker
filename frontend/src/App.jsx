@@ -58,8 +58,8 @@ const App = () => {
   }, [weekData]);
 
   return (
-  <div className="min-h-screen bg-slate-700 p-4">
-    <header className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between sm:gap-4 sm:px-2 min-h-[4rem]">
+  <div className="min-h-screen bg-[#1E1E3F] p-4">
+    <header className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between mb-4 sm:gap-4 sm:px-2 min-h-[4rem] border-b-2 border-[#FF6EC7] pb-2">
       <div className="flex flex-col items-center sm:flex-row sm:items-center sm:gap-4">
         <img
           src={barbellLogo}
@@ -67,8 +67,9 @@ const App = () => {
           className="h-10 w-auto object-contain rounded-md"
         />
 
-        <h1 className="text-blue-400 text-3xl font-extrabold underline whitespace-nowrap
-                       text-center sm:text-left md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
+        <h1 className="text-[#00FFFF] text-3xl font-extrabold uppercase 
+        tracking-wider whitespace-nowrap underline 
+        text-center sm:text-left md:absolute md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2">
           Gym Tracker
         </h1>
 
@@ -76,7 +77,8 @@ const App = () => {
           href="https://github.com/EricScherer2006/gym-tracker"
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-600 transition-colors"
+          className="inline-flex items-center gap-2 px-4 py-2 bg-[#111126] 
+          text-[#00FFFF] rounded-lg hover:bg-[#FF00FF] hover:text-[#0D0D1A] transition-colors"
         >
           <span className="relative rounded-full border-2 border-gray-500 p-1 overflow-hidden">
             <FaGithub className="w-5 h-5 relative z-10" />
@@ -90,8 +92,8 @@ const App = () => {
 
       <div className="mt-2 sm:mt-0 w-full sm:w-auto">
         <button
-          className="text-sm bg-red-600 text-white px-3 py-1 rounded-full shadow-sm hover:bg-red-600 transition 
-                    block mx-auto sm:ml-[6px] md:mx-0 text-center"
+          className="text-sm bg-[#FF00FF] text-[#0D0D1A] px-3 py-1 rounded-full 
+          shadow-md hover:bg-[#FF6EC7] transition-colors block mx-auto sm:ml-[6px] md:mx-0 text-center"
           onClick={() => {
              resetWeek();
             

@@ -6,10 +6,10 @@ import React from "react";
 
 const SetRow = ({ reps, weight, onChange, onRemove }) => {
   return (
-    <div className="flex flex-wrap gap-x-2 gap-y-1 items-center mb-1 bg-blue-300 p-2 rounded">
+    <div className="flex flex-wrap gap-3 items-center mb-2 p-2 bg-[#111126] border-2 border-[#00FFFF] rounded-lg shadow-md">
       
-      <label className="flex items-center gap-1 min-w-[130px]">
-        <span className="w-[50px] text-sm">Reps:</span>
+      <label className="flex items-center gap-2 min-w-[140px]">
+        <span className="w-[50px] text-sm text-[#FF6EC7] font-semibold">Reps:</span>
         <input
           type="number"
           min="0"
@@ -31,20 +31,20 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
               onChange("reps", 0);
             }
           }}
-          className="w-[60px] px-1 py-0.5 border rounded text-right text-sm max1773:w-[54px] max1773:text-xs"
+          className="w-[70px] px-2 py-1 border border-[#FF00FF] rounded bg-[#0D0D1A] text-[#00FFFF] text-right focus:outline-none focus:ring-2 focus:ring-[#FF00FF]"
         />
       </label>
 
       <button
         onClick={onRemove}
         aria-label="Remove set"
-        className="text-xs bg-red-500 text-white px-1.5 py-0.5 -ml-3 sm:-ml-3 md:-ml-3 xl:ml-0 leading-none rounded-sm hover:bg-red-600 mt-[1px]"
+        className="text-xs text-[#0D0D1A] bg-[#FF00FF] px-2 py-1 rounded hover:bg-[#FF6EC7] transition-shadow shadow-sm"
       >
         X
       </button>
 
-      <label className="flex items-center gap-1 min-w-[130px]">
-        <span className="w-[50px] text-sm">Weight:</span>
+      <label className="flex items-center gap-1 min-w-[140px]">
+        <span className="w-[50px] text-sm text-[#FF6EC7] font-semibold">Weight:</span>
         <input
           type="number"
           min="0"
@@ -63,9 +63,9 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
               onChange("weight", 0);
             }
           }}
-          className="w-[60px] px-1 py-0.5 border rounded text-right text-sm max1773:w-[54px] max1773:text-xs"
+          className="w-[70px] px-2 py-1 border border-[#FF00FF] rounded bg-[#0D0D1A] text-[#00FFFF] text-right focus:outline-none focus:ring-2 focus:ring-[#FF00FF]"
         />
-        <span className="text-xs ml-2 max1773:ml-0.5 min1774:ml-5 whitespace-nowrap">kg</span>
+        <span className="text-xs ml-3 text-[#00FFFF] whitespace-nowrap">kg</span>
       </label>
     </div>
   );

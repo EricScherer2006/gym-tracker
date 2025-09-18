@@ -24,7 +24,7 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
 
 
   return (
-    <div className= "border border-slate-400 rounded">
+    <div className= " bg-[#0D0D1A] p-2">
 
       <div>
         {exercises.map((exercise, index) => (
@@ -40,28 +40,26 @@ const DayColumn = ({ day, exercises, setWeekData }) => {
       
       {/* Show input field for new exercise or Add button */}
       {showInput ? (
-        <div className="flex flex-col gap-2 mt-2 xl:flex-col xl:gap-2 xl:mt-2">
+        <div className="flex flex-col gap-2 mt-2 xl:flex-col xl:gap-2 xl:mt-2 border-l-2 border-[#00FFFF] pl-2">
           <input
             type="text"
             placeholder="Exercise name"
-            className="border ml-1 mr-1 px-2 py-1 rounded text-sm w-full xl:w-auto"
+            className="border border-[#00FFFF] ml-1 mr-1 px-2 py-1 rounded text-sm w-full xl:w-auto bg-[#111126] text-[#00FFFF] placeholder-[#00FFFF] focus:outline-none focus:ring-2 focus:ring-[#FF00FF]"
             value={newExerciseName}
             onChange={(e) => setNewExerciseName(e.target.value)}
           />
           <div className="flex flex-col gap-2 xl:flex-row xl:gap-2">
-            <button onClick={addExercise} className="text-xs xl:text-sm text-white px-2 py-1 ml-1  bg-slate-600 
-            rounded-md hover:text-white hover:bg-green-500 border border-green-500 transition focus:outline-none mb-1">
+            <button onClick={addExercise} className="text-xs xl:text-sm text-[#00FFFF] px-2 py-1 ml-1 bg-[#111126] rounded-md hover:text-[#0FF] hover:bg-[#FF00FF] border border-[#00FFFF] transition focus:outline-none mb-1">
               ✅ Add
             </button>
-            <button onClick={() => { setShowInput(false); setNewExerciseName(""); }} className="text-xs xl:text-sm text-white px-2 py-1  
-            rounded-md hover:text-white border border-red-500 bg-slate-600 hover:bg-red-500 transition focus:outline-none mb-1">
-              <span className="text-red-500 mr-1">✕</span>
+            <button onClick={() => { setShowInput(false); setNewExerciseName(""); }} className="text-xs xl:text-sm text-[#FF00FF] px-2 py-1 rounded-md hover:text-[#FF6EC7] border border-[#FF00FF] bg-[#111126] hover:bg-[#FF00FF] transition focus:outline-none mb-1">
+              <span className="ttext-[#FF00FF] mr-1">✕</span>
                Cancel
             </button>
           </div>
         </div>
       ) : (
-        <button className="mt-2 ml-2 mb-2 rounded px-2 py-1 text-sm text-pink-200 hover:bg-pink-300 border border-pink-200 transition focus:outline-none" onClick={() => setShowInput(true)}>
+        <button className="mt-2 ml-2 mb-2 rounded px-2 py-1 text-sm text-[#FF6EC7] hover:bg-[#FF00FF] border border-[#FF6EC7] transition focus:outline-none" onClick={() => setShowInput(true)}>
           ➕ Add Exercise
         </button>
       )}

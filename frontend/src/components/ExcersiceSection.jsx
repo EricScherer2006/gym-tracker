@@ -12,17 +12,16 @@ const ExerciseSection = ({ exercise, exerciseIndex, day, setWeekData }) => {
   const toggleExpanded = () => setExpanded((prev) => !prev);
 
   return (
-    <div className={
-      "border border-gray-900 rounded bg-slate-700 p-2 mb-3 overflow-hidden box-border"  // Remover borders after collapsing
+    <div className={  "border border-[#FF00FF] rounded-xl bg-[#0D0D1A] p-2 mb-3 overflow-hidden box-border shadow-lg"
        }
     >
       <div
-        className="flex justify-between items-center cursor-pointer select-none"
+        className="flex justify-between items-center cursor-pointer select-none border-b border-[#00FFFF] pb-1"
         onClick={toggleExpanded}
       >
-        <h3 className="font-semibold text-pink-300 text-md underline">{exercise.name}</h3>
+        <h3 className="font-bold text-[#FF6EC7] text-md tracking-wider">{exercise.name}</h3>
         <button
-          className="text-sm text-pink-400 hover:text-pink-600 focus:outline-none"
+          className="text-sm text-[#00FFFF] hover:text-[#0FF] focus:outline-none font-bold"
           aria-label={expanded ? "Collapse exercise" : "Expand exercise"}
         >
           {expanded ? "−" : "+"}
@@ -30,7 +29,7 @@ const ExerciseSection = ({ exercise, exerciseIndex, day, setWeekData }) => {
       </div>
 
       {expanded && (
-        <div className="mt-2">
+        <div className="mt-2 ">
           <EntryForm
             day={day}
             exerciseIndex={exerciseIndex}
