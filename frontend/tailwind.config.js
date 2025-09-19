@@ -11,6 +11,14 @@ module.exports = {
         min1774: '1774px',
         fixWrapremoveButton: { raw: '(min-width: 1536px) and (max-width: 1676px)' }
       },
+      colors: {
+        cyberpunk: {
+          
+        },
+        normal: {
+          
+        }
+      }
     },
   },
   plugins: [],

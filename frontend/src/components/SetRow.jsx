@@ -31,7 +31,7 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
               onChange("reps", 0);
             }
           }}
-          className="w-[70px] px-2 py-1 border border-[#FF00FF] rounded bg-[#0D0D1A] text-[#00FFFF] text-right focus:outline-none focus:ring-2 focus:ring-[#FF00FF]"
+          className="w-[70px] px-2 py-1 border border-[#FF00FF] rounded bg-[#0D0D1A] text-[#00FFFF] text-center focus:outline-none focus:ring-2 focus:ring-[#FF00FF]"
         />
       </label>
 
@@ -44,7 +44,7 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
       </button>
 
       <label className="flex items-center gap-1 min-w-[140px]">
-        <span className="w-[50px] text-sm text-[#FF6EC7] font-semibold">Weight:</span>
+        <span className="w-[50px] text-sm text-[#FF6EC7] font-semibold mr-1">Weight:</span>
         <input
           type="number"
           min="0"
@@ -63,12 +63,12 @@ const SetRow = ({ reps, weight, onChange, onRemove }) => {
               onChange("weight", 0);
             }
           }}
-          className="w-[70px] px-2 py-1 border border-[#FF00FF] rounded bg-[#0D0D1A] text-[#00FFFF] text-right focus:outline-none focus:ring-2 focus:ring-[#FF00FF]"
+          className="w-[70px] px-2 py-1 border border-[#FF00FF] rounded bg-[#0D0D1A] text-[#00FFFF] text-center focus:outline-none focus:ring-2 focus:ring-[#FF00FF]"
         />
-        <span className="text-xs ml-3 text-[#00FFFF] whitespace-nowrap">kg</span>
+        <span className="text-xs ml-6 text-[#00FFFF] whitespace-nowrap ">kg</span>
       </label>
     </div>
   );
 };
 
-export default SetRow
+export default SetRow;

@@ -62,13 +62,15 @@ const EntryForm = ({ day, exerciseIndex, exercise, setWeekData }) => {
       </div>
 
       {(exercise.sets || []).map((set, i) => (
-        <SetRow
-          key={i}
-          reps={set.reps}
-          weight={set.weight}
-          onChange={(key, value) => updateSet(i, key, value)}
-          onRemove={() => removeSet(i)} 
-        />
+        <div key={i} className="flex items-center gap-2">
+          <span className="text-[#00FFFF] font-mono w-10 text-sm">#{i + 1}</span>
+          <SetRow
+            reps={set.reps}
+            weight={set.weight}
+            onChange={(key, value) => updateSet(i, key, value)}
+            onRemove={() => removeSet(i)}
+          />
+        </div>
       ))}
 
       <button

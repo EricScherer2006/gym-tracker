@@ -1,9 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef,createContext, useContext } from "react";
 import WeekView from "./components/WeekView";
+import ThemeSwitch from "./components/ThemeSwitch"
 import { saveWeekData, loadWeekData } from "./services/dataService";
 import './App.css';
 import barbellLogo from './assets/barbell-7834321_640.jpg';
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaMoon, FaSun } from "react-icons/fa";
 
 // App.jsx
 /* Days of the week used as keys in weekData */
@@ -73,6 +74,8 @@ const App = () => {
           Gym Tracker
         </h1>
 
+        <ThemeSwitch/> 
+
         <a
           href="https://github.com/EricScherer2006/gym-tracker"
           target="_blank"
@@ -112,5 +115,6 @@ const App = () => {
   </div>
   );
 };
+
 
 export default App;

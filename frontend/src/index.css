@@ -8,3 +8,23 @@ html, body, #root {
   height: 100%;
   width: 100%;
 }
+
+
+.cyberpunk {
+  --bg: #0D0D1A;
+  --text: #FF6EC7;
+  --border: #FF6EC7;
+}
+
+.cyberpunkfordays {
+  --bg: #0D0D1A; 
+  --text: #0FF;
+  --border : #00FFFF;
+  
+}
+
+.normal {
+  --bg: #ffffff;
+  --text: #1f1f1f;
+  --border: #ccc;
+}
